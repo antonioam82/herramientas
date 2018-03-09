@@ -28,7 +28,7 @@ def dat(n):
     return n
 
 while True:
-    print("Escola una opción.")
+    print("Escoja una opción.")
     print("A)CREAR NUEVO ARCHIVO.")
     print("B)VER UN ARCHIVO.")
     print("C)INTRODUCIR CAMBIOS EN UN ARCHIVO.")
