@@ -5,7 +5,7 @@ import subprocess
 
 def conte(x):
     while True:
-        nombre=input("Introduzca el nombre del archivo cuyo contenido quiere visualizar: ")
+        nombre=input("Introduzca el nombre del archivo al que desea acceder: ")
         try:
             contenido=pickle.load(open(nombre,"rb"))
             break
@@ -15,8 +15,8 @@ def conte(x):
         return contenido
     else:
         return(nombre)
-        
 
+        
 def dat(n):
     try:
         n=int(n)
@@ -59,9 +59,10 @@ while True:
         print("¿Que tipo de cambio es el que desea realizar?")
         print("A)AÑADIR CAMPOS")
         print("B)ELIMINAR CAMPOS")
+        print("C)CAMBIAR DATOS")
         numcam=(len(nombre))-1
         n=0
-        op=opt(input("Introduzca aquí su opción: "),["A","B"])
+        op=opt(input("Introduzca aquí su opción: "),["A","B","C"])
         if op==("A"):
             numero_campos=OKI(input("Introduzca el número de campos que desea añadir: "))
             cam_nuevos=[]
@@ -89,8 +90,15 @@ while True:
             print("NUEVO ESTADO: ",nombre)
             print("CAMPOS ELIMINADOS: ",cam_eliminad)
             print("")
+        elif op==("C"):
+            camps_modif=input("Introduzca los campos a modificar separados por coma: ")
+            for i in camps_modif.split(","):
+                nombre[int(i)]=dat(input("Escriba nuevo dato para posición: "))
+                print(nombre)
+            print("NUEVO ESTADO: ",nombre)
         pickle.dump(nombre,open(nombreA,"wb"))      
     conti=ns(input("¿Desea continuar?: "))
     if conti==("n"):
         break
     subprocess.call(["cmd.exe","/C","cls"])
+
