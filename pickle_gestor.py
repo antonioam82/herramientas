@@ -93,8 +93,13 @@ while True:
         elif op==("C"):
             camps_modif=input("Introduzca los campos a modificar separados por coma: ")
             for i in camps_modif.split(","):
-                nombre[int(i)]=dat(input("Escriba nuevo dato para posición: "))
-                print(nombre)
+                if int(i)>=len(nombre):
+                    print("")
+                    print("EL CAMPO",i,"NO ESTA DISPONIBLE",chr(7))
+                    print("")
+                else:
+                    nombre[int(i)]=dat(input("Escriba nuevo dato para posición: "))
+                    print(nombre)
             print("NUEVO ESTADO: ",nombre)
         pickle.dump(nombre,open(nombreA,"wb"))      
     conti=ns(input("¿Desea continuar?: "))
