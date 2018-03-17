@@ -16,7 +16,23 @@ def conte(x):
     else:
         return(nombre)
 
+
+def depura_list(cadena):
+    cad=[]
+    for i in cadena:
+        try:
+            i=int(i)
+            cad.append(i)
+        except:
+            try:
+                i=float(i)
+                cad.append(i)
+            except:
+                print("SE HA INCLUIDO CARACTERES NO NUMERICOS QUE SERÁN IGNORADOS")
+                pass
+    return cad
         
+
 def dat(n):
     try:
         n=int(n)
@@ -51,7 +67,7 @@ while True:
     elif op==("B"):
         contenido=conte("a")
         print("")
-        print(contenido)
+        print("ESTADO ACTUAL: ",contenido)
         print("")
     elif op==("C"):
         nombreA=conte("b")
@@ -73,7 +89,7 @@ while True:
                 n+=1
             print("")
             print("NUEVO ESTADO: ",nombre)
-            print("CAMPOS AÑADIDOS: ",cam_nuevos)
+            print("POSICIONES AÑADIDAS: ",cam_nuevos)
             print("")
         elif op==("B"):
             numero_campos=OKI(input("Introduzca el número de campos a eliminar: "))
@@ -88,11 +104,12 @@ while True:
             cam_eliminad.sort()
             print("")
             print("NUEVO ESTADO: ",nombre)
-            print("CAMPOS ELIMINADOS: ",cam_eliminad)
+            print("POSICIONES ELIMINADAS: ",cam_eliminad)
             print("")
         elif op==("C"):
             camps_modif=input("Introduzca los campos a modificar separados por coma: ")
-            for i in camps_modif.split(","):
+            lista_defin=depura_list(camps_modif.split(","))
+            for i in lista_defin:
                 if int(i)>=len(nombre):
                     print("")
                     print("EL CAMPO",i,"NO ESTA DISPONIBLE",chr(7))
@@ -106,4 +123,3 @@ while True:
     if conti==("n"):
         break
     subprocess.call(["cmd.exe","/C","cls"])
-
