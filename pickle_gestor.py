@@ -24,12 +24,7 @@ def depura_list(cadena):
             i=int(i)
             cad.append(i)
         except:
-            try:
-                i=float(i)
-                cad.append(i)
-            except:
-                print("SE HA INCLUIDO CARACTERES NO NUMERICOS QUE SERÁN IGNORADOS")
-                pass
+            print("SE HA INCLUIDO NUMEROS NO ENTEROS O CARACTERES NO VALIDOS QUE SERÁN IGNORADOS")
     return cad
         
 
