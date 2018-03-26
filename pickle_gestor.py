@@ -75,15 +75,21 @@ while True:
         n=0
         op=opt(input("Introduzca aquí su opción: "),["A","B","C"])
         if op==("A"):
-            numero_campos=OKI(input("Introduzca el número de campos que desea añadir: "))
+            lista=[]
             cam_nuevos=[]
-            while n<numero_campos:#DUPLICADO
-                nombre.append(0)
+            contenido=input("Introduzca los nuevos datos que desea añadir, separados por coma: ")
+            un=("").join(contenido)
+            sep=un.split(",")
+            for i in sep:
+                elem=dat(i)
+                print(type(elem))
+                lista.append(elem)
                 numcam+=1
                 cam_nuevos.append(numcam)
-                n+=1
+            nombre=nombre+lista
             print("")
             print("NUEVO ESTADO: ",nombre)
+            print("DATOS AÑADIDOS: ",lista)
             print("POSICIONES AÑADIDAS: ",cam_nuevos)
             print("")
         elif op==("B"):
@@ -91,7 +97,7 @@ while True:
             while numero_campos>len(nombre):
                 numero_campos=OKI(input("El número de campos introducido es superior al número de campos actual: "))
             cam_eliminad=[]
-            while n<numero_campos:#DUPLICADO
+            while n<numero_campos:
                 cam_eliminad.append(numcam)
                 numcam-=1
                 del nombre[-1]
