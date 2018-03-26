@@ -113,7 +113,7 @@ while True:
             for i in lista_defin:
                 if int(i)>=len(nombre):
                     print("")
-                    print("EL CAMPO",i,"NO ESTA DISPONIBLE",chr(7))
+                    print("LA POSICION",i,"NO ESTA DISPONIBLE",chr(7))
                     print("")
                 else:
                     nombre[int(i)]=dat(input("Escriba nuevo dato para posición: "))
