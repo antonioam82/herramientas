@@ -54,7 +54,7 @@ while True:
             print(type(elem))
             lista.append(elem)
         print(lista)
-        nombreA=input("nuevo archivo: ")
+        nombreA=input("Nombre del nuevo archivo: ")
         pickle.dump(lista,open(nombreA,"wb"))
         print(lista)
         print("El archivo se creo correctamente")
