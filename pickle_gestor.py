@@ -86,7 +86,7 @@ while True:
         print("¿Que tipo de cambio es el que desea realizar?")
         print("A)AÑADIR CAMPOS")
         print("B)ELIMINAR CAMPOS")
-        print("C)CAMBIAR DATOS")
+        print("C)MODIFICAR DATOS")
         numcam=(len(nombre))-1
         n=0
         op=opt(input("Introduzca aquí su opción: "),["A","B","C"])
