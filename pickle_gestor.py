@@ -71,6 +71,7 @@ while True:
         if busca==True:
             pickle.dump(lista,open(nombreA,"wb"))
         else:
+            subprocess.call(["cmd.exe","/C","cls"])
             continue
         print(lista)
         print("El archivo se creo correctamente")
@@ -140,4 +141,5 @@ while True:
     if conti==("n"):
         break
     subprocess.call(["cmd.exe","/C","cls"])
+
 
