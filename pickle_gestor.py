@@ -84,6 +84,9 @@ while True:
     elif op==("C"):
         nombreA=conte("b")
         nombre=pickle.load(open(nombreA,"rb"))
+        print("")
+        print("ESTADO ACTUAL: ",nombre)
+        print("")
         print("¿Que tipo de cambio es el que desea realizar?")
         print("A)AÑADIR CAMPOS")
         print("B)ELIMINAR CAMPOS")
@@ -134,12 +137,10 @@ while True:
                     print("")
                 else:
                     nombre[int(i)]=dat(input("Escriba nuevo dato para posición: "))
-                    print(nombre)
             print("NUEVO ESTADO: ",nombre)
         pickle.dump(nombre,open(nombreA,"wb"))      
     conti=ns(input("¿Desea continuar?: "))
     if conti==("n"):
         break
     subprocess.call(["cmd.exe","/C","cls"])
-
 
