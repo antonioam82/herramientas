@@ -113,3 +113,19 @@ def opt(o,l):
     while o not in l:
         o=input("Introduzca una opción válida: ")
     return o
+
+def OKI_R(n):
+    if n!="R":
+        try:
+            n=int(n)
+        except:
+            n=OKI_R(input("Caracter no válido: "))
+    return n
+
+def OK_R(n):
+    if n!="R":
+        try:
+            n=float(n)
+        except:
+            n=OK_R(input("Cracter no válido: "))
+    return n
