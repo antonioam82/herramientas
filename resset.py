@@ -1,4 +1,5 @@
 import subprocess
+from VALID import OKI_R
 while True:
     a=OKI_R(input("Numero: "))
     if a=="R":
