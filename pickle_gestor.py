@@ -25,7 +25,7 @@ def busca_ar(n):
         else:
             return False 
     except:
-        pickle.dump(lista,open(nombreA,"wb"))
+        pickle.dump(lista,open(n,"wb"))#nombreA
         
 
 def depura_list(cadena):
@@ -144,4 +144,3 @@ while True:
     if conti==("n"):
         break
     subprocess.call(["cmd.exe","/C","cls"])
-
