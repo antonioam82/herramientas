@@ -19,15 +19,14 @@ def conte(x):
 def busca_ar(n):
     try:
         n=pickle.load(open(n,"rb"))
+        sob=ns(input("Ya existe un archivo con ese nombre. ¿Desea sobreescribirlo?: "))
+        if sob==("s"):
+            pickle.dump(lista,open(nombreA,"wb"))
+        else:
+            return False 
     except:
-        return True
-    sob=ns(input("Ya existe un archivo con ese nombre. ¿Desea sobreescribirlo?: "))
-    if sob==("s"):
-        return True
-    else:
-        return False
+        pickle.dump(lista,open(nombreA,"wb"))
         
-
 
 def depura_list(cadena):
     cad=[]
@@ -67,10 +66,12 @@ while True:
             lista.append(elem)
         print(lista)
         nombreA=input("Nombre del nuevo archivo: ")
+        #busca_ar(input("Nombre del nuevo archivo: "))
+        #if busca_ar==False:
+            #subprocess.call(["cmd.exe","/C","cls"])
+            #continue
         busca=busca_ar(nombreA)
-        if busca==True:
-            pickle.dump(lista,open(nombreA,"wb"))
-        else:
+        if busca==False:
             subprocess.call(["cmd.exe","/C","cls"])
             continue
         print(lista)
@@ -143,3 +144,4 @@ while True:
     if conti==("n"):
         break
     subprocess.call(["cmd.exe","/C","cls"])
+
