@@ -114,20 +114,21 @@ while True:
             print("POSICIONES AÑADIDAS: ",cam_nuevos)
             print("")
         elif op==("B"):
-            numero_campos=OKI(input("Introduzca el número de campos a eliminar: "))
-            while numero_campos>len(nombre):
-                numero_campos=OKI(input("El número de campos introducido es superior al número de campos actual: "))
-            cam_eliminad=[]
-            while n<numero_campos:
-                cam_eliminad.append(numcam)
-                numcam-=1
-                del nombre[-1]
-                n+=1
-            cam_eliminad.sort()
-            print("")
-            print("NUEVO ESTADO: ",nombre)
-            print("POSICIONES ELIMINADAS: ",cam_eliminad)
-            print("")
+            campos_a_eliminar=input("Introduzca las posiciones a eliminar separadas por coma: ")
+            lista_defin=depura_list(campos_a_eliminar.split(","))
+            try:
+                n=max(lista_defin)
+                m=min(lista_defin)
+                while n>=m:
+                    if n in lista_defin and n<=len(nombre):
+                        del nombre[n]
+                    n-=1
+                print("")
+                print("NUEVO ESTADO: ",nombre)
+                print("")
+            except:
+                print("SE HA INTRODUCIDO UN CARACTER NO CORRESPONDIENTE A UNA POSICIÓN")
+
         elif op==("C"):
             camps_modif=input("Introduzca los campos a modificar separados por coma: ")
             lista_defin=depura_list(camps_modif.split(","))
