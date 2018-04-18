@@ -116,7 +116,7 @@ while True:
         elif op==("B"):
             campos_a_eliminar=input("Introduzca las posiciones a eliminar separadas por coma: ")
             lista_defin=depura_list(campos_a_eliminar.split(","))
-            try:
+            try: #SOLUCION PARA EL CASO DE INTRODUCCION DE UN SOLO CARCTER NO VÁLIDO
                 n=max(lista_defin)
                 m=min(lista_defin)
                 while n>=m:
