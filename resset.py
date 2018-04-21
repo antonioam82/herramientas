@@ -1,3 +1,4 @@
+#ENSAYO DE "RESETEADO" PARA INTRODUCCIÓN DE DATOS.
 import subprocess
 from VALID import OKI_R
 while True:
