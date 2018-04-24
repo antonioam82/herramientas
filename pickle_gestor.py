@@ -66,10 +66,6 @@ while True:
             lista.append(elem)
         print(lista)
         nombreA=input("Nombre del nuevo archivo: ")
-        #busca_ar(input("Nombre del nuevo archivo: "))
-        #if busca_ar==False:
-            #subprocess.call(["cmd.exe","/C","cls"])
-            #continue
         busca=busca_ar(nombreA)
         if busca==False:
             subprocess.call(["cmd.exe","/C","cls"])
