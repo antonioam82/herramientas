@@ -66,6 +66,10 @@ while True:
             lista.append(elem)
         print(lista)
         nombreA=input("Nombre del nuevo archivo: ")
+        #busca_ar(input("Nombre del nuevo archivo: "))
+        #if busca_ar==False:
+            #subprocess.call(["cmd.exe","/C","cls"])
+            #continue
         busca=busca_ar(nombreA)
         if busca==False:
             subprocess.call(["cmd.exe","/C","cls"])
@@ -128,14 +132,17 @@ while True:
         elif op==("C"):
             camps_modif=input("Introduzca los campos a modificar separados por coma: ")
             lista_defin=depura_list(camps_modif.split(","))
-            for i in lista_defin:
+            dats_added=0
+            for i in lista_defin:#CONVERTIR EN FUNCIÓN
                 if int(i)>=len(nombre):
                     print("")
                     print("EL CAMPO",i,"NO ESTA DISPONIBLE",chr(7))
                     print("")
                 else:
                     nombre[int(i)]=dat(input("Escriba nuevo dato para posición: "))
-            print("NUEVO ESTADO: ",nombre)
+                    dats_added+=1
+            if dats_added>=1:
+                print("NUEVO ESTADO: ",nombre)
         pickle.dump(nombre,open(nombreA,"wb"))      
     conti=ns(input("¿Desea continuar?: "))
     if conti==("n"):
