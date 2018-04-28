@@ -139,10 +139,12 @@ while True:
                     print("EL CAMPO",i,"NO ESTA DISPONIBLE",chr(7))
                     print("")
                 else:
-                    nombre[int(i)]=dat(input("Escriba nuevo dato para posición: "))
+                    nombre[int(i)]=dat(input("Escriba nuevo dato para posición "+str(i)+": "))
                     dats_added+=1
             if dats_added>=1:
                 print("NUEVO ESTADO: ",nombre)
+            else:
+                print("NO SE PUDO COMPLETAR LA OPERACION (DATO INTRODUCIDO INCORRECTO)")
         pickle.dump(nombre,open(nombreA,"wb"))      
     conti=ns(input("¿Desea continuar?: "))
     if conti==("n"):
