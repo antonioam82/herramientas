@@ -139,7 +139,7 @@ while True:
                     print("EL CAMPO",i,"NO ESTA DISPONIBLE",chr(7))
                     print("")
                 else:
-                    nombre[int(i)]=dat(input("Escriba nuevo dato para posición "+str(i)+": "))
+                    nombre[int(i)]=dat(input("Escriba nuevo dato para la posición "+str(i)+": "))
                     dats_added+=1
             if dats_added>=1:
                 print("NUEVO ESTADO: ",nombre)
