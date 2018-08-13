@@ -149,4 +149,7 @@ while True:
     conti=ns(input("¿Desea continuar?: "))
     if conti==("n"):
         break
-    subprocess.call(["cmd.exe","/C","cls"])
+    try:
+        subprocess.call(["cmd.exe","/C","cls"])
+    except:
+        continue
