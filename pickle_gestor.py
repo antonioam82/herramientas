@@ -112,24 +112,25 @@ while True:
         elif op==("B"):
             campos_a_eliminar=input("Introduzca las posiciones a eliminar separadas por coma: ")
             lista_defin=depura_list(campos_a_eliminar.split(","))
-            try: #SOLUCION PARA EL CASO DE INTRODUCCION DE UN SOLO CARACTER NO VÁLIDO
-                n=max(lista_defin)
-                m=min(lista_defin)
-                while n>=m:
-                    if n in lista_defin and n<=len(nombre):
+            n=max(lista_defin)
+            m=min(lista_defin)
+            while n>=m:
+                if n in lista_defin:
+                    if n>=len(nombre):
+                        print("La posición ",n,"está fuera de rango, por lo que será ignorada.")
+                    else:
                         del nombre[n]
-                    n-=1
-                print("")
-                print("NUEVO ESTADO: ",nombre)
-                print("")
-            except:
-                print("SE HA INTRODUCIDO UN CARACTER NO CORRESPONDIENTE A UNA POSICIÓN")
+                n-=1
+                
+            print("")
+            print("NUEVO ESTADO: ",nombre)
+            print("")
 
         elif op==("C"):
             camps_modif=input("Introduzca los campos a modificar separados por coma: ")
             lista_defin=depura_list(camps_modif.split(","))
             dats_added=0
-            for i in lista_defin:#CONVERTIR EN FUNCIÓN
+            for i in lista_defin:
                 if int(i)>=len(nombre):
                     print("")
                     print("EL CAMPO",i,"NO ESTA DISPONIBLE",chr(7))
