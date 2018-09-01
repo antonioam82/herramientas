@@ -114,17 +114,19 @@ while True:
             lista_defin=depura_list(campos_a_eliminar.split(","))
             n=max(lista_defin)
             m=min(lista_defin)
+            camb=0
             while n>=m:
                 if n in lista_defin:
                     if n>=len(nombre):
                         print("La posición ",n,"está fuera de rango, por lo que será ignorada.")
                     else:
                         del nombre[n]
+                        camb+=1
                 n-=1
-                
-            print("")
-            print("NUEVO ESTADO: ",nombre)
-            print("")
+            if camb>0:
+                print("")
+                print("NUEVO ESTADO: ",nombre)
+                print("")
 
         elif op==("C"):
             camps_modif=input("Introduzca los campos a modificar separados por coma: ")
