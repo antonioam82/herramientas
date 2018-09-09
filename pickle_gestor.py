@@ -32,7 +32,7 @@ def depura_list(cadena):
     cad=[]
     for i in cadena:
         try:
-            i=int(i)
+            i=abs(int(i))
             cad.append(i)
         except:
             print("SE HA INCLUIDO NUMEROS DECIMALES O CARACTERES NO VALIDOS QUE SERÁN IGNORADOS")
