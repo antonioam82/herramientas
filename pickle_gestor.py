@@ -19,7 +19,7 @@ def conte(x):
 def busca_ar(n):
     try:
         n=pickle.load(open(n,"rb"))
-        sob=ns(input("Ya existe un archivo con ese nombre. ¿Desea sobreescribirlo?: "))
+        sob=ns(input("Ya existe un archivo con ese nombre ¿Desea sobreescribirlo?: "))
         if sob==("s"):
             pickle.dump(lista,open(nombreA,"wb"))
         else:
@@ -56,15 +56,17 @@ while True:
     print("C)INTRODUCIR CAMBIOS EN UN ARCHIVO.")
     op=opt(input("Introduzca aquí su opción: "),["A","B","C"])
     if op==("A"):
+        datt=ns(input("¿Añadir datos ahora?: "))
         lista=[]
-        contenido=input("Introduzca dato/s separados por coma: ")
-        un=("").join(contenido)
-        sep=un.split(",")
-        for i in sep:
-            elem=dat(i)
-            print(type(elem))
-            lista.append(elem)
-        print(lista)
+        if datt=="s":
+            contenido=input("Introduzca dato/s separados por coma: ")
+            un=("").join(contenido)
+            sep=un.split(",")
+            for i in sep:
+                elem=dat(i)
+                print(type(elem))
+                lista.append(elem)
+        #print(lista)
         nombreA=input("Nombre del nuevo archivo: ")
         busca=busca_ar(nombreA)
         if busca==False:
