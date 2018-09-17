@@ -1,4 +1,3 @@
-import pickle
 from VALID import ns, opt, OKI
 import time
 import subprocess
@@ -28,14 +27,16 @@ def busca_ar(n):
         pickle.dump(lista,open(n,"wb"))#nombreA
         
 
-def depura_list(cadena):
+def depura_list(cadena,archi):
     cad=[]
     for i in cadena:
         try:
-            i=abs(int(i))
+            i=int(i)
+            if i<0:
+                i=(archi)+(i)
             cad.append(i)
         except:
-            print("SE HA INCLUIDO NUMEROS DECIMALES O CARACTERES NO VALIDOS QUE SERÁN IGNORADOS")
+            print("SE HA INCLUIDO NUMEROS DECIMALES O CARACTERES NO VÁLIDOS QUE SERÁN IGNORADOS")
     return cad
         
 
@@ -113,18 +114,19 @@ while True:
             print("")
         elif op==("B"):
             campos_a_eliminar=input("Introduzca las posiciones a eliminar separadas por coma: ")
-            lista_defin=depura_list(campos_a_eliminar.split(","))
-            n=max(lista_defin)
-            m=min(lista_defin)
+            lista_defin=depura_list(campos_a_eliminar.split(","),len(nombre))
             camb=0
-            while n>=m:
-                if n in lista_defin:
-                    if n>=len(nombre):
-                        print("La posición ",n,"está fuera de rango, por lo que será ignorada.")
-                    else:
-                        del nombre[n]
-                        camb+=1
-                n-=1
+            if len(lista_defin)>0:
+                n=max(lista_defin)
+                m=min(lista_defin)
+                while n>=m:
+                   if n in lista_defin:
+                       if n>=len(nombre):
+                           print("La posición ",n,"está fuera de rango, por lo que será ignorada.")
+                       else:
+                           del nombre[n]
+                           camb+=1
+                   n-=1
             if camb>0:
                 print("")
                 print("NUEVO ESTADO: ",nombre)
@@ -132,7 +134,7 @@ while True:
 
         elif op==("C"):
             camps_modif=input("Introduzca los campos a modificar separados por coma: ")
-            lista_defin=depura_list(camps_modif.split(","))
+            lista_defin=depura_list(camps_modif.split(","),len(nombre))
             dats_added=0
             for i in lista_defin:
                 if int(i)>=len(nombre):
@@ -143,7 +145,9 @@ while True:
                     nombre[int(i)]=dat(input("Escriba nuevo dato para la posición "+str(i)+": "))
                     dats_added+=1
             if dats_added>=1:
+                print("")
                 print("NUEVO ESTADO: ",nombre)
+                print("")
             else:
                 print("NO SE PUDO COMPLETAR LA OPERACION (DATO INTRODUCIDO INCORRECTO)")
         pickle.dump(nombre,open(nombreA,"wb"))      
@@ -154,3 +158,4 @@ while True:
         subprocess.call(["cmd.exe","/C","cls"])
     except:
         continue
+
