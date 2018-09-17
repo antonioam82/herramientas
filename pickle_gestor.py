@@ -1,3 +1,4 @@
+import pickle
 from VALID import ns, opt, OKI
 import time
 import subprocess
@@ -121,7 +122,7 @@ while True:
                 m=min(lista_defin)
                 while n>=m:
                    if n in lista_defin:
-                       if n>=len(nombre):
+                       if n>=len(nombre) or n<0:
                            print("La posición ",n,"está fuera de rango, por lo que será ignorada.")
                        else:
                            del nombre[n]
@@ -137,7 +138,7 @@ while True:
             lista_defin=depura_list(camps_modif.split(","),len(nombre))
             dats_added=0
             for i in lista_defin:
-                if int(i)>=len(nombre):
+                if abs(int(i)>=len(nombre)):
                     print("")
                     print("EL CAMPO",i,"NO ESTA DISPONIBLE",chr(7))
                     print("")
@@ -158,4 +159,3 @@ while True:
         subprocess.call(["cmd.exe","/C","cls"])
     except:
         continue
-
