@@ -123,6 +123,8 @@ while True:
                 while n>=m:
                    if n in lista_defin:
                        if n>=len(nombre) or n<0:
+                           if n<0:
+                               n=-1*((abs(n)+(len(nombre)+camb)))
                            print("La posición ",n,"está fuera de rango, por lo que será ignorada.")
                        else:
                            del nombre[n]
@@ -138,7 +140,9 @@ while True:
             lista_defin=depura_list(camps_modif.split(","),len(nombre))
             dats_added=0
             for i in lista_defin:
-                if abs(int(i)>=len(nombre)):
+                if i<0:
+                    i=-1*(abs(i)+len(nombre))#
+                if int(i)>=len(nombre)or int(i)<0:
                     print("")
                     print("EL CAMPO",i,"NO ESTA DISPONIBLE",chr(7))
                     print("")
@@ -149,8 +153,7 @@ while True:
                 print("")
                 print("NUEVO ESTADO: ",nombre)
                 print("")
-            else:
-                print("NO SE PUDO COMPLETAR LA OPERACION (DATO INTRODUCIDO INCORRECTO)")
+    
         pickle.dump(nombre,open(nombreA,"wb"))      
     conti=ns(input("¿Desea continuar?: "))
     if conti==("n"):
