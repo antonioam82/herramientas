@@ -95,6 +95,18 @@ while True:
         numcam=(len(nombre))-1
         n=0
         op=opt(input("Introduzca aquí su opción: "),["A","B","C"])
+        if (op=="B" or op=="C") and len(nombre)==0:
+            if len(nombre)==0:
+                print("EL ARCHIVO ESPACIFICADO ESTÁ VACÍO")
+                conti=ns(input("¿Desea continuar?: "))
+                if conti=="s":
+                    try:
+                        subprocess.call(["cmd.exe","/C","cls"])
+                        continue
+                    except:
+                        continue
+                else:
+                    break
         if op==("A"):
             lista=[]
             cam_nuevos=[]
@@ -153,7 +165,7 @@ while True:
                 print("")
                 print("NUEVO ESTADO: ",nombre)
                 print("")
-    
+ 
         pickle.dump(nombre,open(nombreA,"wb"))      
     conti=ns(input("¿Desea continuar?: "))
     if conti==("n"):
