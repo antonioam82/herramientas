@@ -2,6 +2,7 @@ import pickle
 from VALID import ns, opt, OKI
 import time
 import subprocess
+import os
 
 def conte(x):
     while True:
@@ -92,12 +93,13 @@ while True:
         print("A)AÑADIR CAMPOS")
         print("B)ELIMINAR CAMPOS")
         print("C)MODIFICAR DATOS")
+        print("D)RENOMBRAR ARCHIVO") #NUEVO
         numcam=(len(nombre))-1
         n=0
-        op=opt(input("Introduzca aquí su opción: "),["A","B","C"])
+        op=opt(input("Introduzca aquí su opción: "),["A","B","C","D"])
         if (op=="B" or op=="C") and len(nombre)==0:
             if len(nombre)==0:
-                print("EL ARCHIVO ESPACIFICADO ESTÁ VACÍO")
+                print("EL ARCHIVO ESPECIFICADO ESTÁ VACÍO")
                 conti=ns(input("¿Desea continuar?: "))
                 if conti=="s":
                     try:
@@ -125,6 +127,7 @@ while True:
             print("DATOS AÑADIDOS: ",lista)
             print("POSICIONES AÑADIDAS: ",cam_nuevos)
             print("")
+            
         elif op==("B"):
             campos_a_eliminar=input("Introduzca las posiciones a eliminar separadas por coma: ")
             lista_defin=depura_list(campos_a_eliminar.split(","),len(nombre))
@@ -165,8 +168,21 @@ while True:
                 print("")
                 print("NUEVO ESTADO: ",nombre)
                 print("")
- 
-        pickle.dump(nombre,open(nombreA,"wb"))      
+            #else:
+                #print("NO SE PUDO COMPLETAR LA OPERACION (DATO/S INTRODUCIDO/S INCORRECTO/S)")#¿REALMENTE HACE FALTA?
+                
+        elif op=="D":############################################################
+            nuevo_nombre=input("Intoduzca nuevo nombre para el archivo: ")##
+            lista_ar=os.listdir(-Path-)#RUTA A "nombreA".
+            for i in lista_ar:
+                os.renames(nombreA,nuevo_nombre)
+                break
+                print("")
+                print("Se cambio el nombre de",nombreA,"por el de",nuevo_nombre)
+                print("")
+                
+        if op!="D":
+            pickle.dump(nombre,open(nombreA,"wb"))      
     conti=ns(input("¿Desea continuar?: "))
     if conti==("n"):
         break
