@@ -173,9 +173,10 @@ while True:
                 
         elif op=="D":############################################################
             nuevo_nombre=input("Intoduzca nuevo nombre para el archivo: ")##
-            lista_ar=os.listdir(-Path-)#RUTA A "nombreA".
+            lista_ar=os.listdir()#LISTA DE ARCHIVOS EN EL DIRECTORIO DE PYTHON
             for i in lista_ar:
                 os.renames(nombreA,nuevo_nombre)
+                print("El archivo \'",nombreA,"\' es ahora \'",nuevo_nombre,"\'")
                 break
                 print("")
                 print("Se cambio el nombre de",nombreA,"por el de",nuevo_nombre)
@@ -190,3 +191,4 @@ while True:
         subprocess.call(["cmd.exe","/C","cls"])
     except:
         continue
+  
