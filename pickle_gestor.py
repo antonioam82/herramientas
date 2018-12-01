@@ -176,10 +176,9 @@ while True:
             lista_ar=os.listdir()#LISTA DE ARCHIVOS EN EL DIRECTORIO DE PYTHON
             for i in lista_ar:
                 os.renames(nombreA,nuevo_nombre)
-                print("El archivo \'",nombreA,"\' es ahora \'",nuevo_nombre,"\'")
                 break
                 print("")
-                print("Se cambio el nombre de",nombreA,"por el de",nuevo_nombre)
+                print("Se cambio el nombre de \'",nombreA,"\' por el de \'",nuevo_nombre,"\'")
                 print("")
                 
         if op!="D":
