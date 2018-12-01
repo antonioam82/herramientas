@@ -177,9 +177,9 @@ while True:
             for i in lista_ar:
                 os.renames(nombreA,nuevo_nombre)
                 break
-                print("")
-                print("Se cambio el nombre de \'",nombreA,"\' por el de \'",nuevo_nombre,"\'")
-                print("")
+            print("")
+            print("Se cambio el nombre de \'",nombreA,"\' por el de \'",nuevo_nombre,"\'")
+            print("")
                 
         if op!="D":
             pickle.dump(nombre,open(nombreA,"wb"))      
