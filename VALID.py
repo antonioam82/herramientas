@@ -129,3 +129,16 @@ def OK_R(n):
         except:
             n=OK_R(input("Cracter no válido: "))
     return n
+
+def clearer():
+    import sys
+    stp=sys.platform
+    if stp=="win32" or stp=="linux2":
+        if stp=="win32":
+            import subprocess
+            subprocess.call(["cmd.exe","/C","cls"])
+        else:
+            import os
+            os.system("clear")
+    else:
+        pass
