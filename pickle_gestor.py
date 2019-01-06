@@ -168,10 +168,8 @@ while True:
                 print("")
                 print("NUEVO ESTADO: ",nombre)
                 print("")
-            #else:
-                #print("NO SE PUDO COMPLETAR LA OPERACION (DATO/S INTRODUCIDO/S INCORRECTO/S)")#¿REALMENTE HACE FALTA?
                 
-        elif op=="D":############################################################
+        elif op=="D":
             nuevo_nombre=input("Intoduzca nuevo nombre para el archivo: ")##
             lista_ar=os.listdir()#LISTA DE ARCHIVOS EN EL DIRECTORIO DE PYTHON
             for i in lista_ar:
