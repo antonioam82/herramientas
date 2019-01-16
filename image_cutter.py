@@ -14,13 +14,15 @@ while True:
     print(box)
     for file in os.listdir():
         if file.startswith(inicial):
-            imagen = Image.open(file)
-            n_imagen = imagen.crop(box)
-            n_imagen.save(file)
-            print("EXITO")
+            try:
+                imagen = Image.open(file)
+                n_imagen = imagen.crop(box)
+                n_imagen.save(file)
+            except:
+                print("La operación no pudo completarse con éxito")
+                pass
     conti=ns(input("¿Continuar?: "))
 
     if conti=="n":
         break
     subprocess.cal(["cmd.exe","/C","cls"])
-
