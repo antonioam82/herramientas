@@ -3,13 +3,21 @@ from VALID import ns
 import subprocess
 import os
 
+def long():
+    while True:
+        tup=input("Introduce medidas: ")
+        pix=tup.split(",")
+        if len(pix)==4:
+            break
+    return pix
+
 while True:
     puntos=[]
     inicial=input("Introduce inicial: ")
     
-    pixels=input("Introduce medidas: ")
-    pix=pixels.split(",")
-    for i in pix:
+    pixels=long()
+    
+    for i in pixels:
         puntos.append(int(i))
             
     box=(puntos[0],puntos[1],puntos[2],puntos[3])
@@ -30,3 +38,4 @@ while True:
     if conti=="n":
         break
     subprocess.call(["cmd.exe","/C","cls"])
+
