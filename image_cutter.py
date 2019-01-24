@@ -12,15 +12,23 @@ def long():
     return pix
 
 while True:
+    cuenta=0
     puntos=[]
     inicial=input("Introduce inicial: ")
     
     pixels=long()
     
     for i in pixels:
-        puntos.append(int(i))
-            
-    box=(puntos[0],puntos[1],puntos[2],puntos[3])
+        try:
+            puntos.append(int(i))
+        except:
+            print("Introduzca números")
+            break
+
+    if len(puntos)==4:
+        box=(puntos[0],puntos[1],puntos[2],puntos[3])
+    else:
+        continue
 
     for file in os.listdir():
         if file.startswith(inicial):
@@ -29,13 +37,17 @@ while True:
                 ig=imagen
                 n_imagen = imagen.crop(box)
                 n_imagen.save(file)
+                cuenta+=1
             except:
                 print("La operación no pudo completarse con éxito")
                 ig.save(file)
                 break
+    if cuenta==0:
+        print("No se encontrón ningun archivo que empieze por",inicial)
     conti=ns(input("¿Continuar?: "))
 
     if conti=="n":
         break
     subprocess.call(["cmd.exe","/C","cls"])
+
 
