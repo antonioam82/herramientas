@@ -12,7 +12,6 @@ def long():
     return pix
 
 while True:
-    cuenta=0
     puntos=[]
     inicial=input("Introduce inicial: ")
     
@@ -42,8 +41,7 @@ while True:
                 print("La operación no pudo completarse con éxito")
                 ig.save(file)
                 break
-    if cuenta==0:
-        print("No se encontrón ningun archivo que empiece por",inicial)
+
     conti=ns(input("¿Continuar?: "))
 
     if conti=="n":
