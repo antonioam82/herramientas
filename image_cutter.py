@@ -43,7 +43,7 @@ while True:
                 ig.save(file)
                 break
     if cuenta==0:
-        print("No se encontrón ningun archivo que empieze por",inicial)
+        print("No se encontrón ningun archivo que empiece por",inicial)
     conti=ns(input("¿Continuar?: "))
 
     if conti=="n":
