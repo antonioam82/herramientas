@@ -1,30 +1,19 @@
 from PIL import Image
-from VALID import ns
+from VALID import ns, OKI
 import subprocess, os
-
-def long():
-    while True:
-        puntos=[]
-        tup=input("Introduce medidas: ")
-        pix=tup.split(",")
-        if len(pix)==4:
-            for i in pix:
-                try:
-                    puntos.append(int(i))
-                except:
-                    continue
-            return puntos
 
 while True:
     while True:
         inicial=input("Introduce inicial: ")
         if inicial!=(""):
             break
-
-    puntos=long()
-    print(puntos)
+        
+    dato_iz=OKI(input("Introduce dato izquierdo: "))
+    dato_sup=OKI(input("Introduce dato superior: "))
+    dato_der=OKI(input("Introduce dato derecho: "))
+    dato_inf=OKI(input("Introduce dato inferior: "))
     
-    box=(puntos[0],puntos[1],puntos[2],puntos[3])
+    box=(dato_iz, dato_sup, dato_der, dato_inf)
 
     for file in os.listdir():
         if file.startswith(inicial):
