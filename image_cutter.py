@@ -1,7 +1,6 @@
 from PIL import Image
 from VALID import ns
-import subprocess
-import os
+import subprocess, os
 
 def long():
     while True:
