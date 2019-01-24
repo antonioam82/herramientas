@@ -17,7 +17,10 @@ def long():
             return puntos
 
 while True:
-    inicial=input("Introduce inicial: ")
+    while True:
+        inicial=input("Introduce inicial: ")
+        if inicial!=(""):
+            break
 
     puntos=long()
     print(puntos)
@@ -42,6 +45,7 @@ while True:
     if conti=="n":
         break
     subprocess.call(["cmd.exe","/C","cls"])
+
 
 
 
