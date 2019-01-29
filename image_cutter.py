@@ -8,6 +8,7 @@ def veri(n):
         for i in os.listdir():
             if i.startswith(n):
                 ciert=True
+                break
         if ciert==False:
             print("No se encontro ningún archivo con tales iniciales.")
     return ciert
