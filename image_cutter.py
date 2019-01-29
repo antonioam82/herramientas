@@ -2,11 +2,22 @@ from PIL import Image
 from VALID import ns, OKI
 import subprocess, os
 
+def veri(n):
+    ciert=False
+    if n!=(""):
+        for i in os.listdir():
+            if i.startswith(n):
+                ciert=True
+        if ciert==False:
+            print("No se encontro ningún archivo con tales iniciales.")
+    return ciert
+                
 while True:
-    while True:
+
+    pasa=False
+    while pasa==False:
         inicial=input("Introduce inicial: ")
-        if inicial!=(""):
-            break
+        pasa=veri(inicial)
         
     dato_iz=OKI(input("Introduce dato izquierdo: "))
     dato_sup=OKI(input("Introduce dato superior: "))
