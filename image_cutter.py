@@ -14,6 +14,12 @@ def veri(n):
     return ciert
                 
 while True:
+    print("")
+    print("_____________________________")
+    print("|                           |")
+    print("|     --IMAGE  CUTTER--     |")
+    print("|___________________________|")
+    print("")
 
     pasa=False
     while pasa==False:
@@ -34,9 +40,10 @@ while True:
                 ig=imagen
                 n_imagen = imagen.crop(box)
                 n_imagen.save(file)
-                
+                print("Operación completada con éxito para el archivo", file) 
+
             except:
-                print("La operación no pudo completarse con éxito")
+                print("La operación no pudo completarse con éxito para el archivo", file)
                 ig.save(file)
                 break
             
@@ -45,7 +52,4 @@ while True:
     if conti=="n":
         break
     subprocess.call(["cmd.exe","/C","cls"])
-
-
-
 
