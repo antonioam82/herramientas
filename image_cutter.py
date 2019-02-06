@@ -37,14 +37,15 @@ while True:
         if file.startswith(inicial):
             try:
                 imagen = Image.open(file)
-                ig=imagen
+                #ig=imagen
                 n_imagen = imagen.crop(box)
                 n_imagen.save(file)
                 print("Operación completada con éxito para el archivo", file) 
 
             except:
                 print("La operación no pudo completarse con éxito para el archivo", file)
-                ig.save(file)
+                #ig.save(file)
+                imagen.close()
                 break
             
     conti=ns(input("¿Continuar?: "))
@@ -52,4 +53,3 @@ while True:
     if conti=="n":
         break
     subprocess.call(["cmd.exe","/C","cls"])
-
