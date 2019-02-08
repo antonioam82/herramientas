@@ -14,6 +14,7 @@ def veri(n):
     return ciert
                 
 while True:
+    os.chdir(r'-path to folder-')
     print("")
     print("_____________________________")
     print("|                           |")
@@ -53,3 +54,4 @@ while True:
     if conti=="n":
         break
     subprocess.call(["cmd.exe","/C","cls"])
+
