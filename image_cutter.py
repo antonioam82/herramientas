@@ -12,9 +12,11 @@ def veri(n):
         if ciert==False:
             print("No se encontro ningún archivo con tales iniciales.")
     return ciert
-                
+
+os.chdir(r'#path')
+
 while True:
-    os.chdir(r'-path to folder-')
+    
     print("")
     print("_____________________________")
     print("|                           |")
@@ -54,4 +56,3 @@ while True:
     if conti=="n":
         break
     subprocess.call(["cmd.exe","/C","cls"])
-
