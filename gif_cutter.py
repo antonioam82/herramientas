@@ -1,6 +1,7 @@
 from PIL import Image
-import os
+import os, subprocess
 from VALID import ns, OKI
+
 
 os.chdir(r'#path')
 
@@ -16,6 +17,10 @@ while True:
     giff=input("Nobre del archivo: ")
     gif_name=giff+".gif"
 
+    if not gif_name in os.listdir():
+        print("No se encontró el archivo",gif_name)
+        break
+        
     dato_iz=OKI(input("Introduce dato izquierdo: "))
     dato_sup=OKI(input("Introduce dato superior: "))
     dato_der=OKI(input("Introduce dato derecho: "))
@@ -41,6 +46,7 @@ while True:
     except EOFError:
         pass
 
-    conti=ns(input("¿Continuar?: "))
+    conti=ns(input("¿Desea continuar?: "))
     if conti=="n":
         break
+    subprocess.call(["cmd.exe","/C","cls"])
