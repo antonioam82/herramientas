@@ -2,7 +2,7 @@ from PIL import Image
 import os
 from VALID import ns, OKI
 
-os.chdir(r'C:\Users\Antonio\Documents\Nueva carpeta\imagess')
+os.chdir(r'#path')
 
 while True:
 
