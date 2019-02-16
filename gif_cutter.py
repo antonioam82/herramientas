@@ -2,7 +2,6 @@ from PIL import Image
 import os, subprocess
 from VALID import ns, OKI
 
-
 os.chdir(r'#path')
 
 while True:
