@@ -15,12 +15,12 @@ while True:
             except:
                 print("Nope")
         else:
-            sep=dato.split(",")
-            im.convert(sep[0])
-            #if sep[0]=="P" and len(sep)==1:
-                #im.convert('P')
-                #print(im)
-                #output=np.array(im.getpalette())
+            try:
+                sep=dato.split(",")
+                im.convert(sep[0])
+            except:
+                print("DATOS NO APTOS")
+                continue
             if sep[1]=="R":
                 output=np.array(im.getchannel(0))
             elif sep[1]=="G":
@@ -28,3 +28,4 @@ while True:
             elif sep[1]=="B":
                 output=np.array(im.getchannel(2))
             print(output)
+    
