@@ -4,7 +4,7 @@ import os
 
 opciones=['R','G','B','P']
 
-os.chdir(r'C:\Users\Antonio\Documents\AAM images')
+os.chdir(r'')
 
 while True:
     dato=input("Comm: ")
