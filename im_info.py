@@ -24,12 +24,14 @@ while True:
                 continue
             if dato=="P":
                 output=np.array(im.getpalette())
+                print(output)
             elif dato=="R":
                 output=np.array(im.getchannel(0))
-                print("Done")
-            elif dato=="G":
+                print(output)
+            elif dato=="G" and sep[1]!='P' and sep[1]!='L':
                 output=np.array(im.getchannel(1))
-            elif dato=="B":
+                print(output)
+            elif dato=="B" and sep[1]!='P' and sep[1]!='L':
                 output=np.array(im.getchannel(2))
-            print(output)
+                print(output)
     
